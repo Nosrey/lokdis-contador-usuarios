@@ -41,7 +41,10 @@ app.post('/incrementar', async (_, res) => {
 // Ruta para mostrar el número actual
 app.get('/numero', async (_, res) => {
     try {
-        const result = await client.query('SELECT numero FROM contador LIMIT 1');
+        const query = `
+            SELECT numero FROM contador WHERE id = 1;
+        `;
+        const result = await client.query(query);
         console.log('result: ', result)
         res.json({ numero: result.rows.length ? result.rows[0].numero : 0 });
     } catch (error) {
