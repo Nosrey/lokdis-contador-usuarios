@@ -30,8 +30,10 @@ app.post('/incrementar', async (_, res) => {
             RETURNING numero;
         `;
         const result = await client.query(query);
+        console.log('result: ', result)
         res.json({ numero: result.rows[0].numero });
     } catch (error) {
+        console.log('error: ', error)
         res.status(500).json({ error: 'Error al incrementar el número' });
     }
 });
@@ -40,8 +42,10 @@ app.post('/incrementar', async (_, res) => {
 app.get('/numero', async (_, res) => {
     try {
         const result = await client.query('SELECT numero FROM contador LIMIT 1');
+        console.log('result: ', result)
         res.json({ numero: result.rows.length ? result.rows[0].numero : 0 });
     } catch (error) {
+        console.log('error: ', error)
         res.status(500).json({ error: 'Error al obtener el número' });
     }
 });
