@@ -4,7 +4,11 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "tsc",
+    "vercel-build": "echo hello"
   },
   "dependencies": {
     "express": "^4.17.1",
