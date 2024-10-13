@@ -25,7 +25,7 @@ client.connect()
 app.post('/incrementar', async (_, res) => {
     try {
         const query = `
-            INSERT INTO contador (numero) VALUES (1)
+            INSERT INTO contador (id, numero) VALUES (1, 1)
             ON CONFLICT (id) DO UPDATE SET numero = contador.numero + 1
             RETURNING numero;
         `;
