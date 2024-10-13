@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import pkg from 'pg';
 const { Client } = pkg;
 
@@ -7,6 +8,9 @@ const port = 3000;
 
 // Middleware para permitir el uso de JSON en las peticiones
 app.use(express.json());
+
+// Middleware para habilitar CORS
+app.use(cors());
 
 // Conectar a la base de datos PostgreSQL
 const client = new Client({
